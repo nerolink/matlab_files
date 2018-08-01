@@ -1,0 +1,8 @@
+function[]=main(sample_file)
+[X,y]=read_sample(sample_file);
+tomeklinks=TomekLinks(X,y);
+num_0=numel(find(y==0));
+num_1=numel(find(y==1));
+if num_0>num_1
+    
+end

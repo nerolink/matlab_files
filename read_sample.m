@@ -1,0 +1,18 @@
+function [X,y]=read_sample(sample_file)
+%读取sample文件并返回sample
+f=fopen(sample_file,'rt');
+tmp_y=fgetl(f);
+tmp_y=strtrim(tmp_y);
+y=regexp(tmp_y,' ','split');
+y=str2double(y);
+X=[];
+while feof(f) ~= 1
+    line=fgetl(f);
+    line=strtrim(line);
+    X=[X;regexp(line,' ','split')];
+end
+x_shape=size(X);
+X=reshape(X,x_shape(1)*x_shape(2),1);
+X=str2double(X);
+X=reshape(X,x_shape(1),x_shape(2));
+end

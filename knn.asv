@@ -1,0 +1,17 @@
+function [neighbors,distances]=knn(X,k)
+%k近邻法  X--样本，n_sample*n_feature; k--近邻数，不包括自身
+%neighbors--近邻的位置，数值是第几个sample
+%distan
+x_shape=size(X);
+model=KDTreeSearcher(X);
+neighbors=[];
+distances=[];
+for i=1:x_shape(1)
+    point=X(i,:);
+    [n,d]=knnsearch(model,point,'k',k+1);
+    %n=n(2:length(n));
+    %d=d(2:length(d));
+    neighbors=[neighbors;n];
+    distances=[distances;d];
+end
+end
