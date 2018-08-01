@@ -1,6 +1,7 @@
 function[X,y]=main(sample_file)
 [X,y]=read_sample(sample_file);
 draw_sample(X,y);
+
 tomeklinks=TomekLinks(X,y);
 tom_0=tomeklinks(:,1);
 tom_1=tomeklinks(:,2);
